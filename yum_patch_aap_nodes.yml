@@ -12,7 +12,7 @@
         name: exclude_list
 
     - name: Update all packages except those who are in the exclude list
-      ansible.builtin.yum:
+      ansible.builtin.dnf:
         name: '*'
         state: latest
         exclude: exclude_list
