@@ -1,18 +1,18 @@
 ---
 #https://access.redhat.com/solutions/4566711
-name: Patch AAP PAH nodes
-hosts: "{{pah_nodes}}"
-become: True
-gather_facts: true
+- name: Patch AAP PAH nodes
+  hosts: "{{pah_nodes}}"
+  become: True
+  gather_facts: true
 
-Tasks:
-  - name: Include PAH vars exclude file
-    include_vars:
-      file: vars/pah/pah_pkgs.yml
-      name: exclude_list
+  Tasks:
+    - name: Include PAH vars exclude file
+      include_vars:
+        file: vars/pah/pah_pkgs.yml
+        name: exclude_list
 
-  - name: Update all packages except those who are in the exclude list
-    ansible.builtin.yum:
-      name: '*'
-      state: latest
-      exclude: exclude_list
+    - name: Update all packages except those who are in the exclude list
+      ansible.builtin.yum:
+        name: '*'
+        state: latest
+        exclude: exclude_list
