@@ -1,7 +1,7 @@
 ---
 #https://access.redhat.com/solutions/4566711
 name: Patch AAP nodes
-hosts: aap_nodes
+hosts: {{aap_nodes}}
 become: True
 gather_facts: true
 
