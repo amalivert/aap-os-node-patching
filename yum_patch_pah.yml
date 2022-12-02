@@ -16,4 +16,4 @@
       ansible.builtin.dnf:
         name: '*'
         state: latest
-        exclude: exclude_listß
+        exclude: exclude_list
